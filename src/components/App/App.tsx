@@ -4,10 +4,10 @@ import Button from '../ui/Button/Button.tsx'
 //text="Benjamin"
 function App() {
   return <div className="App" data-testid="App"> 
-    <Button onClick={() => {alert("DEMAT BREIZH")}}>
+    <Button bgColor='skyblue' onClick={() => {alert("DEMAT BREIZH")}}>
       YEC'H MAT !
     </Button>   
-    <Button onClick={() => {alert("test")}}>
+    <Button bgColor='yellow' onClick={() => {alert("test")}}>
       <img src="/pacman.png"></img>
     </Button>   
   </div>  
