@@ -1,0 +1,15 @@
+.Button{    
+    border:none;
+    border-radius: 5px;
+    padding: 5px 10px;
+
+    box-shadow: 25px 25px 25px grey;
+    margin: 0 25px 25px 0px;
+
+    color: white;
+    background-color: tomato;
+    
+    font-size: 23px;
+    font-weight: 900;
+}
+
