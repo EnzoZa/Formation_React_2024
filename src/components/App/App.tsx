@@ -8,7 +8,7 @@ function App() {
       YEC'H MAT !
     </Button>   
     <Button onClick={() => {alert("test")}}>
-      <img src="/pacman.png"></img>
+      <img src="/pacman.png" alt="image de pacman"></img>
     </Button>   
   </div>  
 }

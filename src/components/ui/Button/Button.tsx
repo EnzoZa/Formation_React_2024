@@ -2,12 +2,13 @@ import React from 'react'
 import style from './Button.module.css'
 //import PropTypes from 'prop-types'
 
-type ButtonType = {
-  children:React.ReactNode, 
-  onClick?:React.MouseEventHandler<HTMLButtonElement>
-};
+interface IButtonProps {
+  children:React.ReactNode; //ReactNode = ReactElement + string + number + boolean + null + undefined
+  onClick?:React.MouseEventHandler<HTMLButtonElement>;
+}
 
-const Button = ({children, onClick=(() => {})}: ButtonType) => {
+//FC => FunctionComponent
+const Button: React.FC<IButtonProps> = ({children, onClick=(() => {})}) => { 
   return (
     <button className={style.Button} data-testid="Button" onClick={onClick}>
         {children}
