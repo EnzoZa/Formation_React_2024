@@ -37,6 +37,7 @@ import Footer from '../ui/Footer/Footer';
 import { Header, NavBar, Footer, SvgViewer } from '../ui/index'
 import { FlexWFirstGrow, FlexHThirdGrow } from '../layout/index';
 import { MemeForm } from '../functionnal/index';
+import { emptyMeme, MemeSVGViewer } from 'orsys-tjs-meme';
 
 const App=(props:object) => {
   return (
@@ -45,7 +46,7 @@ const App=(props:object) => {
         <Header />
         <NavBar />
         <FlexWFirstGrow>
-          <SvgViewer />
+         <MemeSVGViewer image={undefined} meme={emptyMeme} basePath=''/>
           <MemeForm />
         </FlexWFirstGrow>
         <Footer />
