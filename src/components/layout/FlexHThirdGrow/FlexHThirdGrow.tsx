@@ -8,7 +8,7 @@ interface FlexHThirdGrowProps {
 const FlexHThirdGrow: FC<FlexHThirdGrowProps> = ({children}) => {
  return (
     <div className={styles.FlexHThirdGrow} data-testid="FlexHThirdGrow">
-      FlexHThirdGrow Component <br /> {children}
+      {children}
     </div>
  );
 };

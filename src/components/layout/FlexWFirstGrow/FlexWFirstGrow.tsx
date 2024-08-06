@@ -8,7 +8,7 @@ interface FlexWFirstGrowProps {
 const FlexWFirstGrow: FC<FlexWFirstGrowProps> = ({children}) => {
  return (
     <div className={styles.FlexWFirstGrow} data-testid="FlexWFirstGrow">
-      FlexWFirstGrow Component <br /> {children}
+       {children}
     </div>
  );
 };
