@@ -4,10 +4,15 @@ import Button from '../ui/Button/Button.tsx'
 //text="Benjamin"
 function App() {
   return <div className="App" data-testid="App"> 
-    <Button onClick={() => {alert("DEMAT BREIZH")}}>
+    <Button 
+    onButtonClick={() => {console.log("DEMAT BREIZH")}}
+    type= 'button'
+    >
       YEC'H MAT !
     </Button>   
-    <Button onClick={() => {alert("test")}}>
+    <Button 
+    onButtonClick={(test) => {console.log(test)}}
+      >
       <img src="/pacman.png" alt="image de pacman"></img>
     </Button>   
   </div>  

@@ -4,17 +4,32 @@ import style from './Button.module.css'
 
 interface IButtonProps {
   children:React.ReactNode; //ReactNode = ReactElement + string + number + boolean + null + undefined
-  onClick?:React.MouseEventHandler<HTMLButtonElement>;
+  onButtonClick?:React.MouseEventHandler<HTMLButtonElement>;
+  type?:IType;
 }
+type IType = 'button' | 'submit' | 'reset';
 //let et const reste limiter au parent alors que le var est global
 //FC => FunctionComponent
-const Button: React.FC<IButtonProps> = ({children, onClick=(() => {})}) => { 
+const Button: React.FC<IButtonProps> = ({type, children, onButtonClick=(() => {})}) => { 
   const [isClicked, setIsClicked] = useState(true);
   useEffect(() => {
-    setIsClicked(false);
-  }, []);
+    return () => {
+      //On remet le bouton à son état initial
+      setTimeout(() => {
+        setIsClicked(false); //On peux se permettre de mettre à jour le isClicked alors dans les dépendances il y a isClicked. Car isClicked est une valeur primitive (true, false, null, undefined)
+      }, 3000);
+    }
+  }, [isClicked]);
+  //Type permet de définir le type de bouton
   return (
-        <button className={`${style.Button}${isClicked ? ' ' + style.clicked: ''}`} data-testid="Button" onClick={() => {setIsClicked(true)}}>
+      <button 
+        className={`${style.Button}${isClicked ? ' ' + style.clicked: ''}`} 
+        data-testid="Button" 
+        type={type} 
+        onClick={(e) => {
+          setIsClicked(true);
+          onButtonClick(e); //On peux passer un params de l'enfant au parent
+          }}>
             {children}
         </button>
     )

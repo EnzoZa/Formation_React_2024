@@ -22,7 +22,7 @@
     box-shadow: 15px 15px 25px grey;
     border: 1px solid white;
 }
-
+/* .Button.clicked le rend prioritaire sur le :hover sinon sans .Button il faut mettre !important */
 .Button.clicked{
     background-color: green;
     box-shadow: 5px 5px 25px grey;
