@@ -54,10 +54,12 @@ const App=() => {
         <NavBar />
         <FlexWFirstGrow>
          <MemeSVGViewer image={undefined} meme={meme} basePath=''/>
-          <MemeForm />
+          <MemeForm images={images} />
         </FlexWFirstGrow>
           <div>   
-            {JSON.stringify(images)} 
+            {
+            //JSON.stringify(images)
+            } 
           </div>
         <Footer />
       </FlexHThirdGrow>
