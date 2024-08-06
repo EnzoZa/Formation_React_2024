@@ -28,8 +28,8 @@ const Button: React.FC<IButtonProps> = ({type, children, onButtonClick=(() => {}
         type={type} 
         onClick={(e) => {
           setIsClicked(true);
-          onButtonClick(e); //On peux passer un params de l'enfant au parent
-          }}>
+          onButtonClick(); //On peux passer un params de l'enfant au parent
+        }}>
             {children}
         </button>
     )
