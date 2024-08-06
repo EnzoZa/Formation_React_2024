@@ -9,24 +9,14 @@ interface IButtonProps {
 //let et const reste limiter au parent alors que le var est global
 //FC => FunctionComponent
 const Button: React.FC<IButtonProps> = ({children, onClick=(() => {})}) => { 
-  const [isClicked, setIsClicked] = useState(0);
+  const [isClicked, setIsClicked] = useState(true);
   useEffect(() => {
-    //ComponentDidMount prendre les données ou recup via le localstorage
-    console.log('tata',isClicked)
-    return () => {
-      //ComponentWillUnmount sauvegarder les données dans le localstorage ou dans la base de données pour avoir une persistance des données
-      console.log(isClicked)
-    };
-  }, [isClicked])
+    setIsClicked(false);
+  }, []);
   return (
-    <React.Fragment>
-        <div>
-          is Clicked: {isClicked}
-        </div>
-        <button className={style.Button} data-testid="Button" onClick={() => {setIsClicked(isClicked+1)}}>
+        <button className={`${style.Button}${isClicked ? ' ' + style.clicked: ''}`} data-testid="Button" onClick={() => {setIsClicked(true)}}>
             {children}
         </button>
-    </React.Fragment>
     )
 }
 
