@@ -46,14 +46,16 @@ const App=() => {
   const [images, setImages] = useState([]);
   useEffect(() => {
       fetch('http://localhost:3001/images').then(response => response.json()).then(data => setImages(data));
-  }, [])
+  }, []);
+
+
   return (
     <div className="App">
       <FlexHThirdGrow>
         <Header />
         <NavBar />
         <FlexWFirstGrow>
-         <MemeSVGViewer image={undefined} meme={meme} basePath=''/>
+         <MemeSVGViewer image={images.find((item)=>item.id===meme.imageId)} meme={meme} basePath=''/>
           <MemeForm images={images} />
         </FlexWFirstGrow>
           <div>   
