@@ -32,6 +32,16 @@
         "component": "grc_template/layout/TemplateName.tsx",
         "story": "grc_template/layout/readme.md"
       }
+    },
+    "ui": {
+      "path": "src/components/ui",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component": "grc_template/ui/TemplateName.tsx"
+      }
     }
   }
 }

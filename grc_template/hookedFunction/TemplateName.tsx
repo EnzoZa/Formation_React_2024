@@ -5,7 +5,7 @@ interface TemplateNameProps {}
 
 const templateNameInitialState = false;
 
-const TemplateName: FC<TemplateNameProps> = () => {
+const TemplateName: FC<TemplateNameProps> = (props) => {
   const [state, setState] = useState(templateNameInitialState);
   useEffect(() => {
     //mount effect & update de state
