@@ -11,27 +11,27 @@
       "withTest": true,
       "withStory": true,
       "withLazy": true
-    }
-  },
-  "hook": {
-    "path": "src/components",
-    "withStyle": true,
-    "withTest": true,
-    "withStory": true,
-    "withLazy": true,
-    "customTemplate":{
-      "component": "grc_template/hookedFunction/TemplateName.tsx"
-    }
-  },
-  "layout": {
-    "path": "src/components/layout",
-    "withStyle": true,
-    "withTest": true,
-    "withStory": true,
-    "withLazy": true,
-    "customTemplate":{
-      "component": "grc_template/layout/TemplateName.tsx",
-      "story": "grc_template/layout/readme.md"
+    },
+    "hook": {
+      "path": "src/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component": "grc_template/hookedFunction/TemplateName.tsx"
+      }
+    },
+    "layout": {
+      "path": "src/components/layout",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": true,
+      "customTemplates":{
+        "component": "grc_template/layout/TemplateName.tsx",
+        "story": "grc_template/layout/readme.md"
+      }
     }
   }
 }
