@@ -28,27 +28,37 @@ function App() {
 export default App
 */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 /*
 import Header from '../ui/Header/Header';
 import NavBar from '../ui/NavBar/NavBar';
 import Footer from '../ui/Footer/Footer';
 */
-import { Header, NavBar, Footer, SvgViewer } from '../ui/index'
+import { Header, NavBar, Footer } from '../ui/index'
 import { FlexWFirstGrow, FlexHThirdGrow } from '../layout/index';
 import { MemeForm } from '../functionnal/index';
 import { emptyMeme, MemeSVGViewer } from 'orsys-tjs-meme';
 
-const App=(props:object) => {
+//props:object
+const App=() => {
+  //Mauvaise pratique de gérer l'état de l'application dans le composant racine
+  const [meme, setMeme] = useState(emptyMeme);
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+      fetch('http://localhost:3001/images').then(response => response.json()).then(data => setImages(data));
+  }, [])
   return (
     <div className="App">
       <FlexHThirdGrow>
         <Header />
         <NavBar />
         <FlexWFirstGrow>
-         <MemeSVGViewer image={undefined} meme={emptyMeme} basePath=''/>
+         <MemeSVGViewer image={undefined} meme={meme} basePath=''/>
           <MemeForm />
         </FlexWFirstGrow>
+          <div>   
+            {JSON.stringify(images)} 
+          </div>
         <Footer />
       </FlexHThirdGrow>
     </div>
