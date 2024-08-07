@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeMeme } from '../../../store/current.js'
 import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
-function MemeForm({ images, meme }: memeProps) {
+function MemeForm(props: memeProps) {
     /* Question on ferai pas mieux de dispatch les valeurs initial du store ici ? */
     const imagesSelector = useSelector((storeState:any) => storeState.ressources.images);
     const memeSelector = useSelector((storeState:any) => storeState.current);

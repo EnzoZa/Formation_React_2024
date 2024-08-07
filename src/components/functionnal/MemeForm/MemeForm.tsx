@@ -5,7 +5,7 @@ import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 export interface memeProps {
   images?: ImageInterface[];
   meme?: MemeInterface
-  onMemeChange: (meme: MemeInterface) => void;
+  onMemeChange?: (meme: MemeInterface) => void;
 }
 
 //const memeInitialState = {};
