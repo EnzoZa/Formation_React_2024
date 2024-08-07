@@ -1,7 +1,7 @@
 //store avec redux
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 //import { emptyMeme } from 'orsys-tjs-meme';
-import ressourcesReducer, { addImages } from './ressources';
+import ressourcesReducer, { addImages, loadInit } from './ressources';
 import { images } from '../../db/db.json';
 //import { memes } from '../../db/db.json';
 import currentReducer from './current';
@@ -18,11 +18,12 @@ store.dispatch(addMeme({ ...initiaCurrent, id: 1 }));
 */
 
 export default store;
-
+//Donc au ce subscribe est inutile car on peut utiliser useSelector pour récupérer les données
 store.subscribe(() => {
     console.log("store", store.getState());
 });
-store.dispatch(addImages(images)); //async thunk à la place dans le middleware
+//store.dispatch(addImages(images)); //async thunk à la place dans le middleware => loadImages
+store.dispatch(loadInit());
 /* pour ts
 // Infer the `RootState`,  `AppDispatch`, and `AppStore` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
