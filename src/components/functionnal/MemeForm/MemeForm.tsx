@@ -102,7 +102,7 @@ const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange }) => {
         } onChange={updateMemeChecked}/>
       <hr />
       <br />
-      <Button type="reset">Reset</Button>
+      {/* <Button type="reset">Reset</Button> */}
       <Button type="submit">Valider</Button>
     </form>
   </div>
