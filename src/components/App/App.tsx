@@ -39,7 +39,7 @@ import { FlexHThirdGrow } from '../layout/index';
 import { Link, Route, Routes } from 'react-router-dom';
 import MemeEditor from '../../pages/MemeEditor';
 import MemeHome from '../../pages/MemeHome';
-import MemeThumbnail from '../../pages/MemeThumbnail/MemeThumbnail';
+import MemeThumbnail from '../../pages/MemeThumbnail/MemeThumbnail.connected';
 //import { MemeForm } from '../functionnal/index';
 //import { emptyMeme, ImageInterface, MemeInterface  } from 'orsys-tjs-meme'; //MemeSVGViewer
 //import store from '../../store/store.js';

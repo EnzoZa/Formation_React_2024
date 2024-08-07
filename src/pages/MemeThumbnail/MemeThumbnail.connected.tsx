@@ -1,10 +1,13 @@
-import { MemeSVGViewer } from 'orsys-tjs-meme'
 import React from 'react'
-import style from './MemeThumbnail.module.css'
+import UNCONNECTEDMemeThumbnail from './MemeThumbnail';
+import { useSelector } from 'react-redux'
 
 function MemeThumbnail() {
+    const imagesSelector = useSelector((storeState:any) => storeState.ressources.images);
+    const memeSelector = useSelector((storeState:any) => storeState.ressources.memes);
+    console.log('imagesSelector', imagesSelector);
   return (
-    <div className={style.MemeThumbnail}>MemeThumbnail</div>
+    <UNCONNECTEDMemeThumbnail images={imagesSelector} memes={memeSelector} />
   )
 }
 
