@@ -39,6 +39,10 @@ const ressources = createSlice({
         state.memes.push(...action.payload.memes)
     })
     //addMatcher permet de gérer les cas d'erreur
+    builder.addCase('current/saveCurrent/fulfilled', (state, action) => {
+      const index = state.memes.findIndex(meme => meme.id === action.payload.id);
+      index >= 0 ? state.memes[index] = action.payload : state.memes.push(action.payload);
+    });
   }
 });
 

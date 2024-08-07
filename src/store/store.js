@@ -4,7 +4,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import ressourcesReducer, { loadInit } from './ressources';
 //import { images } from '../../db/db.json';
 //import { memes } from '../../db/db.json';
-import currentReducer from './current';
+import currentReducer, { initCurrent } from './current';
 //const initiaCurrent = emptyMeme;
 
 const store = configureStore({
@@ -22,6 +22,7 @@ export default store;
 store.subscribe(() => {
     console.log("store", store.getState());
 });
+store.dispatch(initCurrent({text: "YEC'H MAT !"}));
 //store.dispatch(addImages(images)); //async thunk à la place dans le middleware => loadImages
 store.dispatch(loadInit());
 /* pour ts

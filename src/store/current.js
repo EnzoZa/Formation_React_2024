@@ -12,14 +12,18 @@ const current = createSlice({
         delete state.id;    
         Object.assign(state, action.payload);
     },
-    resetCurrent(state) {
+    resetCurrent(state, action) {
         delete state.id;
-        Object.assign(state, {...emptyMeme, text:"YEC'H MAT !"});
+        Object.assign(state, action)
+    },
+    initCurrent(state, action) {
+        delete state.id;
+        Object.assign(state, {...emptyMeme, text:action.payload.text});
     }
     },
     extraReducers(builder) {
         builder.addCase(saveCurrent.fulfilled, (state, action) => {
-            delete state.id;
+            //delete state.id;
             Object.assign(state, action.payload);
         });
         builder.addCase(saveCurrent.pending, (state, action) => {
@@ -33,7 +37,8 @@ const current = createSlice({
 
 export const {
     changeMeme,
-    resetCurrent
+    resetCurrent,
+    initCurrent
 } = current.actions
 
 const currentReducer = current.reducer
