@@ -22,7 +22,6 @@ export default store;
 store.subscribe(() => {
     console.log("store", store.getState());
 });
-store.dispatch(addImages(images));
-store.dispatch(addMemes(memes));
+store.dispatch(addImages(images)); //async thunk à la place dans le middleware
 
 

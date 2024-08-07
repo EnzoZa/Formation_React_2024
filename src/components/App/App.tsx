@@ -58,7 +58,7 @@ const App=() => {
         <NavBar />
         <FlexWFirstGrow>
          <MemeSVGViewer image={images.find((item:ImageInterface)=>item.id===meme.imageId)} meme={meme} basePath=''/>
-          <MemeForm images={images} meme={meme} /> {/* onMemeChange={(newMeme:MemeInterface) => {
+          <MemeForm /> {/* onMemeChange={(newMeme:MemeInterface) => {
             setMeme(newMeme);
           }} */}
         </FlexWFirstGrow>

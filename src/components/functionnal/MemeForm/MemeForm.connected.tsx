@@ -2,8 +2,10 @@ import React from 'react'
 import UNCONNECTEDMemeForm, { memeProps } from './MemeForm'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeMeme } from '../../../store/current.js'
+import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
 function MemeForm({ images, meme }: memeProps) {
+    /* Question on ferai pas mieux de dispatch les valeurs initial du store ici ? */
     const imagesSelector = useSelector((storeState:any) => storeState.ressources.images);
     const memeSelector = useSelector((storeState:any) => storeState.current);
     const dispatch = useDispatch();
@@ -11,7 +13,7 @@ function MemeForm({ images, meme }: memeProps) {
         <UNCONNECTEDMemeForm 
             images={imagesSelector}
             meme={memeSelector}
-            onMemeChange={(meme) => dispatch(changeMeme(meme))} //Permet de prévenir le parents du changement de la valeur meme
+            onMemeChange={(meme) => dispatch(changeMeme(meme))} //Permet de prévenir le parents du changement de la valeur meme | il c'est que changeMeme dans current car il a le même nom d'action
         ></UNCONNECTEDMemeForm>
     )
 }
