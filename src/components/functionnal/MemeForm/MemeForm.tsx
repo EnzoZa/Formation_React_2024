@@ -47,7 +47,8 @@ const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange, onMemeSave }) => 
     <div data-testid="meme">
     <form onSubmit={(e) => {
         e.preventDefault();
-        onMemeSave(meme);
+        //Pourquoi ça rafraichi le formulaire ?
+        //onMemeSave(meme);
         //onMemeChange(meme);
       }}
       /* TODO A COMPRENDRE
