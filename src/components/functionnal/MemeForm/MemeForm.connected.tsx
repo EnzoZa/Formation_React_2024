@@ -1,7 +1,7 @@
 import React from 'react'
 import UNCONNECTEDMemeForm, { memeProps } from './MemeForm'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeMeme } from '../../../store/current.js'
+import { changeMeme, saveCurrent } from '../../../store/current.js'
 import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
 function MemeForm(props: memeProps) {
@@ -14,6 +14,7 @@ function MemeForm(props: memeProps) {
             images={imagesSelector}
             meme={memeSelector}
             onMemeChange={(meme) => dispatch(changeMeme(meme))} //Permet de prévenir le parents du changement de la valeur meme | il c'est que changeMeme dans current car il a le même nom d'action
+            onMemeSave={(meme: MemeInterface) => dispatch(saveCurrent(meme))}
         ></UNCONNECTEDMemeForm>
     )
 }

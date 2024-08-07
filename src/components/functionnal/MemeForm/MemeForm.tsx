@@ -6,11 +6,12 @@ export interface memeProps {
   images?: ImageInterface[];
   meme?: MemeInterface
   onMemeChange?: (meme: MemeInterface) => void;
+  onMemeSave?: (meme: MemeInterface) => void;
 }
 
 //const memeInitialState = {};
 
-const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange }) => {
+const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange, onMemeSave }) => {
   //const [state, setState] = useState(memeInitialState); //état intermediaire du composant
   //état intermediaire du composant, pour remonter les valeurs du formulaire que au submit
   //const [memeForm, setMemeForm] = useState(meme); 
@@ -46,6 +47,7 @@ const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange }) => {
     <div data-testid="meme">
     <form onSubmit={(e) => {
         e.preventDefault();
+        onMemeSave(meme);
         //onMemeChange(meme);
       }}
       /* TODO A COMPRENDRE

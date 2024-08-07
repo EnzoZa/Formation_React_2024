@@ -1,8 +1,8 @@
 //store avec redux
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 //import { emptyMeme } from 'orsys-tjs-meme';
-import ressourcesReducer, { addImages, loadInit } from './ressources';
-import { images } from '../../db/db.json';
+import ressourcesReducer, { loadInit } from './ressources';
+//import { images } from '../../db/db.json';
 //import { memes } from '../../db/db.json';
 import currentReducer from './current';
 //const initiaCurrent = emptyMeme;
