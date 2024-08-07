@@ -10,18 +10,21 @@ interface memeProps {
 
 //const memeInitialState = {};
 
-const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
+const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange }) => {
   //const [state, setState] = useState(memeInitialState); //état intermediaire du composant
   //état intermediaire du composant, pour remonter les valeurs du formulaire que au submit
   //const [memeForm, setMemeForm] = useState(meme); 
-  /*
+  //let initialStateMeme= {};
+
   useEffect(() => {
     //mount effect & update de state
+    //initialStateMeme = meme;
   }, []);
+  /*
   useEffect(() => {
     //mount
   });
-  */
+    */
  const updateMeme = (event:React.ChangeEvent<HTMLInputElement>) => {
   const {name, value} = event.target;
   //const newMeme = {...meme, [name]: value};
@@ -45,7 +48,15 @@ const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
     <form onSubmit={(e) => {
         e.preventDefault();
         //onMemeChange(meme);
-      }}>
+      }}
+      /* TODO A COMPRENDRE
+      onReset={(e) => {
+        e.preventDefault();
+        //setMeme(memeInitialState);
+        onMemeChange(initialStateMeme);
+      }}
+      */
+    >
       <label htmlFor="titre" ><h1>Titre</h1></label>
       <br />
       <input name="titre" id="titre" value={meme.titre} onChange={updateMeme} />
@@ -91,10 +102,11 @@ const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
         } onChange={updateMemeChecked}/>
       <hr />
       <br />
+      <Button type="reset">Reset</Button>
       <Button type="submit">Valider</Button>
     </form>
   </div>
   );
 }
 
-export default meme;
+export default MemeForm;
