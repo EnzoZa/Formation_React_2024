@@ -34,9 +34,13 @@ import Header from '../ui/Header/Header';
 import NavBar from '../ui/NavBar/NavBar';
 import Footer from '../ui/Footer/Footer';
 */
-import { Header, NavBar, Footer, MemeSVGViewer } from '../ui/index'
-import { FlexWFirstGrow, FlexHThirdGrow } from '../layout/index';
-import { MemeForm } from '../functionnal/index';
+import { Header, NavBar, Footer } from '../ui/index'
+import { FlexHThirdGrow } from '../layout/index';
+import { Link, Route, Routes } from 'react-router-dom';
+import MemeEditor from '../../pages/MemeEditor';
+import MemeHome from '../../pages/MemeHome';
+import MemeThumbnail from '../../pages/MemeThumbnail/MemeThumbnail';
+//import { MemeForm } from '../functionnal/index';
 //import { emptyMeme, ImageInterface, MemeInterface  } from 'orsys-tjs-meme'; //MemeSVGViewer
 //import store from '../../store/store.js';
 
@@ -56,17 +60,22 @@ const App=() => {
       <FlexHThirdGrow>
         <Header />
         <NavBar />
-        <FlexWFirstGrow>
-         <MemeSVGViewer basePath='' /> { /* image={images.find((item:ImageInterface)=>item.id===meme.imageId)} meme={meme} basePath='' */ }
+        {/* <FlexWFirstGrow>
+         <MemeSVGViewer basePath='' /> { /* image={images.find((item:ImageInterface)=>item.id===meme.imageId)} meme={meme} basePath=''  }
           <MemeForm /> {/* onMemeChange={(newMeme:MemeInterface) => {
             setMeme(newMeme);
-          }} */}
-        </FlexWFirstGrow>
-          <div>   
-            {
-            //JSON.stringify(images)
-            } 
-          </div>
+          }} }
+        </FlexWFirstGrow> */ }
+        {/*<div>
+          <Link to='/'>Home</Link>
+          <Link to='/new'>New</Link>
+          <Link to='/thumbnail'>Thumbnail</Link>
+        </div> */}
+          <Routes>   
+            <Route path='/new' element={<MemeEditor/>} />
+            <Route path='/' element={<MemeHome/>} />
+            <Route path='/thumbnail' element={<MemeThumbnail/>} />
+          </Routes>
         <Footer />
       </FlexHThirdGrow>
     </div>

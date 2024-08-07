@@ -9,11 +9,18 @@ const NavBar: FC<NavBarProps> = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">Home</Navbar.Brand>
+        {
+          /*
+           <Link to='/'>Home</Link>
+          <Link to='/new'>New</Link>
+          <Link to='/thumbnail'>Thumbnail</Link>
+          */
+        }
+        <Navbar.Brand href="/home">Home</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">Thumbnail</Nav.Link>
+          <Nav.Link href="/thumbnail">Thumbnail</Nav.Link>
           <Nav.Link href="#features">Edit id:1</Nav.Link>
-          <Nav.Link href="#pricing">Nouveau</Nav.Link>
+          <Nav.Link href="/new">Nouveau</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
