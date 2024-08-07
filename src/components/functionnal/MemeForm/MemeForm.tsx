@@ -3,10 +3,10 @@ import Button from '../../ui/Button/Button';
 import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
 export interface memeProps {
-  images?: ImageInterface[];
-  meme?: MemeInterface
-  onMemeChange?: (meme: MemeInterface) => void;
-  onMemeSave?: (meme: MemeInterface) => void;
+  images: ImageInterface[];
+  meme: MemeInterface
+  onMemeChange: (meme: MemeInterface) => void;
+  onMemeSave: (meme: MemeInterface) => void;
 }
 
 //const memeInitialState = {};
