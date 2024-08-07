@@ -17,7 +17,7 @@ const Button: React.FC<IButtonProps> = ({type, children, onButtonClick=(() => {}
       //On remet le bouton à son état initial
       setTimeout(() => {
         setIsClicked(false); //On peux se permettre de mettre à jour le isClicked alors dans les dépendances il y a isClicked. Car isClicked est une valeur primitive (true, false, null, undefined)
-      }, 3000);
+      }, 300);
     }
   }, [isClicked]);
   //Type permet de définir le type de bouton

@@ -1,55 +1,78 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './MemeForm.module.css';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import Button from '../../ui/Button/Button';
-import { ImageInterface } from 'orsys-tjs-meme';
+import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
-interface MemeFormProps {
+interface memeProps {
   images: ImageInterface[];
+  meme: MemeInterface
+  onMemeChange: (meme: MemeInterface) => void;
 }
 
-const memeFormInitialState = false;
+//const memeInitialState = {};
 
-const MemeForm: FC<MemeFormProps> = ({ images }) => {
-  const [state, setState] = useState(memeFormInitialState);
+const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
+  //const [state, setState] = useState(memeInitialState); //état intermediaire du composant
+  //état intermediaire du composant, pour remonter les valeurs du formulaire que au submit
+  //const [memeForm, setMemeForm] = useState(meme); 
+  /*
   useEffect(() => {
     //mount effect & update de state
-  }, [state]);
+  }, []);
   useEffect(() => {
     //mount
   });
+  */
+ const updateMeme = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const {name, value} = event.target;
+  const newMeme = {...meme, [name]: value};
+  onMemeChange(newMeme);
+ };
+
+ const updateMemeInt = (event:React.ChangeEvent<HTMLInputElement>|ChangeEvent<HTMLSelectElement>) => {
+  const {name, value} = event.target;
+  //const newMeme = {...meme, [name]: parseInt(value)};
+  onMemeChange({...meme, [name]: parseInt(value)});
+ };
+
   return (
-    <div className={styles.MemeForm} data-testid="MemeForm">
-    <form>
-      <label htmlFor="titre"><h1>Titre</h1></label>
+    <div data-testid="meme">
+    <form onSubmit={(e) => {
+        e.preventDefault();
+        //onMemeChange(meme);
+      }}>
+      <label htmlFor="titre" ><h1>Titre</h1></label>
       <br />
-      <input name="titre" id="titre" />
+      <input name="titre" id="titre" value={meme.titre} onChange={updateMeme} />
       <hr />
       <label htmlFor="image"><h2>Image</h2></label>
       <br />
-      <select name="image" id="image">
+      <select name="image" id="image" value={meme.imageId} onChange={(e) => {
+        onMemeChange({...meme, imageId: Number(e.target.value)});
+      }} >
+        <option value="-1">No image</option>
         { images.map((image: ImageInterface, index) => <option key={index} value={image.id}>{image.name}</option>) }
       </select>
       <hr />
       <label htmlFor="text"><h2>texte</h2></label>
       <br />
-      <input name="text" id="text" type="text" />
+      <input name="text" id="text" type="text" value={meme.text} onChange={updateMeme} />
       <br />
       <label htmlFor="x"><h2 style={{display:'inline'}}>x :</h2>
       </label>
-      <input className={styles.smallNumber} name="x" id="x" type="number" />
+      <input name="x" id="x" type="number" value={meme.x} onChange={updateMemeInt} />
       <label htmlFor="y"><h2 style={{display:'inline'}}>y :</h2></label>
-      <input className={styles.smallNumber} name="y" id="y" type="number" />
+      <input name="y" id="y" type="number" value={meme.y} onChange={updateMemeInt} />
       <hr />
       <br />
       <h2>Decorations</h2>
       <label htmlFor="color"><h2 style={{display:'inline'}}>color :</h2></label>
-      <input name="color" id="color" type="color" />
+      <input name="color" id="color" type="color" value={meme.color} onChange={updateMeme} />
       <br />
       <label htmlFor="fontSize"><h2 style={{display:'inline'}}>font-size :</h2></label>
-      <input className={styles.smallNumber} name="fontSize" id="fontSize" type="number" min="0" />px
+      <input name="fontSize" id="fontSize" type="number" min="0" value={meme.fontSize} onChange={updateMemeInt} />px
       <br />
       <label htmlFor="fontWeight"><h2 style={{display:'inline'}}>font-weight :</h2></label>
-      <input className={styles.smallNumber} name="fontWeight" id="fontWeight" type="number" min="100" step="100" max="900" />
+      <input name="fontWeight" id="fontWeight" type="number" min="100" step="100" max="900" value={meme.fontWeight} onChange={updateMemeInt} />
       <br />
       <input name="underline" id="underline" type="checkbox" />&nbsp;<label htmlFor="underline"><h2 style={{display:'inline'}}>underline</h2></label>&nbsp;<h2 style={{display:'inline'}}>/</h2>&nbsp;<label htmlFor="italic"><h2 style={{display:'inline'}}>italic</h2></label>&nbsp;<input name="italic" id="italic" type="checkbox" />
       <hr />
@@ -60,4 +83,4 @@ const MemeForm: FC<MemeFormProps> = ({ images }) => {
   );
 }
 
-export default MemeForm;
+export default meme;
