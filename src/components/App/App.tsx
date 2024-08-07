@@ -38,12 +38,14 @@ import { Header, NavBar, Footer } from '../ui/index'
 import { FlexWFirstGrow, FlexHThirdGrow } from '../layout/index';
 import { MemeForm } from '../functionnal/index';
 import { emptyMeme, ImageInterface, MemeInterface, MemeSVGViewer } from 'orsys-tjs-meme';
+//import store from '../../store/store.js';
 
 //props:object
 const App=() => {
   //Mauvaise pratique de gérer l'état de l'application dans le composant racine
   const [meme, setMeme] = useState({...emptyMeme, text:"YEC'H MAT !"});
   const [images, setImages] = useState([]);
+  //console.log(store); 
   useEffect(() => {
       fetch('http://localhost:3001/images').then(response => response.json()).then(data => setImages(data));
   }, []);
@@ -56,9 +58,9 @@ const App=() => {
         <NavBar />
         <FlexWFirstGrow>
          <MemeSVGViewer image={images.find((item:ImageInterface)=>item.id===meme.imageId)} meme={meme} basePath=''/>
-          <MemeForm images={images} meme={meme} onMemeChange={(newMeme:MemeInterface) => {
+          <MemeForm images={images} meme={meme} /> {/* onMemeChange={(newMeme:MemeInterface) => {
             setMeme(newMeme);
-          }}/>
+          }} */}
         </FlexWFirstGrow>
           <div>   
             {

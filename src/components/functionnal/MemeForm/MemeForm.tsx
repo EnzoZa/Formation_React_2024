@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import Button from '../../ui/Button/Button';
 import { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
-interface memeProps {
+export interface memeProps {
   images: ImageInterface[];
   meme: MemeInterface
   onMemeChange: (meme: MemeInterface) => void;
@@ -15,7 +15,6 @@ const MemeForm: FC<memeProps> = ({ images, meme, onMemeChange }) => {
   //état intermediaire du composant, pour remonter les valeurs du formulaire que au submit
   //const [memeForm, setMemeForm] = useState(meme); 
   //let initialStateMeme= {};
-
   useEffect(() => {
     //mount effect & update de state
     //initialStateMeme = meme;

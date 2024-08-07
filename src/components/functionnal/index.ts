@@ -1,4 +1,4 @@
-import MemeForm from "./MemeForm/MemeForm";
+import MemeForm from "./MemeForm/MemeForm.connected";
 export {
     MemeForm,
     };
