@@ -24,15 +24,21 @@ const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
   */
  const updateMeme = (event:React.ChangeEvent<HTMLInputElement>) => {
   const {name, value} = event.target;
-  const newMeme = {...meme, [name]: value};
-  onMemeChange(newMeme);
+  //const newMeme = {...meme, [name]: value};
+  onMemeChange( {...meme, [name]: value});
  };
 
- const updateMemeInt = (event:React.ChangeEvent<HTMLInputElement>|ChangeEvent<HTMLSelectElement>) => {
+ const updateMemeInt = (event:React.ChangeEvent<HTMLInputElement>) => {
   const {name, value} = event.target;
   //const newMeme = {...meme, [name]: parseInt(value)};
   onMemeChange({...meme, [name]: parseInt(value)});
  };
+
+ const updateMemeChecked = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const {name, checked} = event.target;
+  //const newMeme =  {...meme, [name]: checked};
+  onMemeChange( {...meme, [name]: checked});
+  }
 
   return (
     <div data-testid="meme">
@@ -74,7 +80,15 @@ const meme: FC<memeProps> = ({ images, meme, onMemeChange }) => {
       <label htmlFor="fontWeight"><h2 style={{display:'inline'}}>font-weight :</h2></label>
       <input name="fontWeight" id="fontWeight" type="number" min="100" step="100" max="900" value={meme.fontWeight} onChange={updateMemeInt} />
       <br />
-      <input name="underline" id="underline" type="checkbox" />&nbsp;<label htmlFor="underline"><h2 style={{display:'inline'}}>underline</h2></label>&nbsp;<h2 style={{display:'inline'}}>/</h2>&nbsp;<label htmlFor="italic"><h2 style={{display:'inline'}}>italic</h2></label>&nbsp;<input name="italic" id="italic" type="checkbox" />
+      <input name="underline" id="underline" type="checkbox" value={
+        meme.underline ? 'on' : 'off'
+      }
+      onChange={updateMemeChecked} />&nbsp;<label htmlFor="underline">
+        <h2 style={{display:'inline'}}>underline</h2></label>&nbsp;<h2 style={{display:'inline'}}>/</h2>&nbsp;
+        <label htmlFor="italic"><h2 style={{display:'inline'}}>italic</h2></label>&nbsp;
+        <input name="italic" id="italic" type="checkbox" value={
+          meme.italic ? 'on' : 'off'
+        } onChange={updateMemeChecked}/>
       <hr />
       <br />
       <Button type="submit">Valider</Button>
