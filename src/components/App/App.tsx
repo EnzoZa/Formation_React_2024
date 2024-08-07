@@ -28,7 +28,7 @@ function App() {
 export default App
 */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 /*
 import Header from '../ui/Header/Header';
 import NavBar from '../ui/NavBar/NavBar';
@@ -36,10 +36,8 @@ import Footer from '../ui/Footer/Footer';
 */
 import { Header, NavBar, Footer } from '../ui/index'
 import { FlexHThirdGrow } from '../layout/index';
-import { Link, Route, Routes } from 'react-router-dom';
-import MemeEditor from '../../pages/MemeEditor';
-import MemeHome from '../../pages/MemeHome';
-import MemeThumbnail from '../../pages/MemeThumbnail/MemeThumbnail.connected';
+import { Route, Routes } from 'react-router-dom';
+import {  MemeEditor, MemeHome, MemeThumbnail }  from '../../pages/index';
 //import { MemeForm } from '../functionnal/index';
 //import { emptyMeme, ImageInterface, MemeInterface  } from 'orsys-tjs-meme'; //MemeSVGViewer
 //import store from '../../store/store.js';
