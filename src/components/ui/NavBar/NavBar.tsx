@@ -19,7 +19,7 @@ const NavBar: FC<NavBarProps> = () => {
         <Navbar.Brand href="/home">Home</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link href="/thumbnail">Thumbnail</Nav.Link>
-          <Nav.Link href="#features">Edit id:1</Nav.Link>
+          <Nav.Link href="/editor/1">Edit id:1</Nav.Link>
           <Nav.Link href="/new">Nouveau</Nav.Link>
         </Nav>
       </Container>

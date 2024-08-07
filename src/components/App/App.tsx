@@ -73,6 +73,7 @@ const App=() => {
             <Route path='/new' element={<MemeEditor/>} />
             <Route path='/' element={<MemeHome/>} />
             <Route path='/thumbnail' element={<MemeThumbnail/>} />
+            <Route path='/editor/:id' element={<MemeEditor />} />
           </Routes>
         <Footer />
       </FlexHThirdGrow>
